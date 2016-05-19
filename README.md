@@ -13,10 +13,10 @@ git status
 git add .
 git commit -m "xxx"
 * Revert
-git reflog //看commit id便于revert
-git reset --hard xxx //commit id 或者HEAD^后一个版本, HEAD^^ 后两个版本
-git checkout -- filename //revert没有**add**到本地的file
-git reset HEAD filename && git checkout -- filename //撤销**add**到本地的file, 然后再撤销本地变化
+git reflog //commit id for revert
+git reset --hard xxx //commit id or HEAD^ or HEAD^^
+git checkout -- filename //revert local file which has not been **added**
+git reset HEAD filename && git checkout -- filename //revert local file that has been **added** and then revert the change in work copy
 * Change
 git rm xxx
 git mv xxx yyy
