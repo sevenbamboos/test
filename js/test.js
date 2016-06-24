@@ -1,40 +1,27 @@
-function sumPrimes(num) {
-	var arr = primeArray(num);
-	console.log(arr);
-  return arr.reduce(function(pre, cur){
-		return pre + cur;
-	});
-}
-
-function primeArray(n) {
-	var arr = [];
-	if (n < 2) return arr;
-	for (var i = 2; i <= n; i++) {
-		if (isPrime(i)) {
-			arr.push(i);
+function addTogether() {
+	var i = 0;
+	while (i < arguments.length) {
+		if (typeof arguments[i] !== 'number') {
+			return undefined;
 		}
+		i++;
 	}
-	return arr;
-}
 
-function isPrime(n) {
-	if (n === 2) {
-		return true;
-	}
-	for (var i = 2; i <= Math.floor(n/2); i++) {
-		if (n % i === 0) {
-			return false;
+	var sum = 0;
+	if (arguments.length > 1) {
+		for (var j = 0; j < arguments.length; j++) {
+			sum += arguments[j];
 		}
+		return sum;
+
+	} else {
+		return addTogether.bind(null, arguments[0]);
 	}
-	return true;
 }
 
-var ret = sumPrimes(10);
+var ret = addTogether(2)(3);
 
 console.log(ret);
 
-$(document).ready(function() {
-	$("#title").html(ret);
-});
-
+$("#answer").html(ret);
 
